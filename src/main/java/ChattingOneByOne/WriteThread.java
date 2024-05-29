@@ -1,4 +1,4 @@
-package consoleChatting;
+package ChattingOneByOne;
 
 import java.io.*;
 import java.net.ServerSocket;

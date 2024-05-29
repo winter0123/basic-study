@@ -1,13 +1,11 @@
-package consoleChatting;
+package ChattingMany;
 
 import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
 
-public class ReadThread extends Thread{
+public class ReadThreadClient extends Thread{
 
     BufferedReader br;
-    public ReadThread(BufferedReader br2) {
+    public ReadThreadClient(BufferedReader br2) {
         br = br2;
     }
 

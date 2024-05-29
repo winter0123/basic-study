@@ -1,4 +1,4 @@
-package consoleChatting;
+package ChattingOneByOne;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ChatServer {
     public static void main(String[] args) {
-// 서버 소켓
+        // 서버 소켓
         ServerSocket serverSocket;
 
         InputStream inputStream;
