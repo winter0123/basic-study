@@ -14,7 +14,6 @@ public class ChatClient {
         OutputStream outputStream;
         PrintStream printStream;
 
-
         try {
             clientSocket = new Socket("192.168.0.19", 80);
 
@@ -23,19 +22,14 @@ public class ChatClient {
             inputStream = clientSocket.getInputStream();
             reader = new InputStreamReader(inputStream, "UTF-8");
             br = new BufferedReader(reader);
-            Scanner sc;
-            sc = new Scanner(System.in);
 
-            while(true) {
-                String message;
-                System.out.print("메시지 입력 : ");
-                message = sc.nextLine();
-                printStream.println(message);
+            ReadThread readThread = new ReadThread(br);
+            readThread.start();
 
-                String result;
-                result = br.readLine();
-                System.out.println(result);
-            }
+            WriteThread writeThread = new WriteThread(printStream);
+            writeThread.start();
+
+            System.out.print("채팅이 시작되었습니다\n");
 
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -27,21 +27,17 @@ public class ChatServer {
             outputStream = clientSocket.getOutputStream();
             printStream = new PrintStream(outputStream);
             inputStream = clientSocket.getInputStream();
+
             reader = new InputStreamReader(inputStream, "UTF-8");
             br = new BufferedReader(reader);
-            Scanner sc;
-            sc = new Scanner(System.in);
 
-            while(true) {
-                String result;
-                result = br.readLine();
-                System.out.println(result);
+            ReadThread readThread = new ReadThread(br);
+            readThread.start();
 
-                String message;
-                System.out.print("메시지 입력 : ");
-                message = sc.nextLine();
-                printStream.println(message);
-            }
+            WriteThread writeThread = new WriteThread(printStream);
+            writeThread.start();
+
+            System.out.print("채팅이 시작되었습니다\n");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
