@@ -88,9 +88,11 @@ public class ChatServer {
 
                 printStream = new PrintStream(clientSocket.getOutputStream(), true);
 
+                //client의 전체 채팅내용 저장용
                 ReadThreadServer readThread = new ReadThreadServer(br, idx);
                 readThread.start();
 
+                //서버는 작성할 필요가 없음
                 //WriteThread writeThread = new WriteThread(printStream,sc,name);
                 //writeThread.start();
 
