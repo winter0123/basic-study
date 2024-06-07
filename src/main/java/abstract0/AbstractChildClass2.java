@@ -1,4 +1,4 @@
-package Abstract;
+package abstract0;
 
 //추상클래스_자식2
 public class AbstractChildClass2 extends AbstractClass{

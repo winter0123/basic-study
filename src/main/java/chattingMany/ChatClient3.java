@@ -1,40 +1,40 @@
-package ChattingOneByOne;
+package chattingMany;
 
 import java.io.*;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class ChatServer {
+public class ChatClient3 {
     public static void main(String[] args) {
-        // 서버 소켓
-        ServerSocket serverSocket;
-
+        Socket clientSocket;
         InputStream inputStream;
         InputStreamReader reader;
         BufferedReader br;
 
         OutputStream outputStream;
         PrintStream printStream;
+        Scanner sc;
+
+        String name = "낮잠자는어피치";
 
         try {
-            // 80번 포트로 서버 실행
-            serverSocket = new ServerSocket(80);
+            clientSocket = new Socket("192.168.0.19", 80);
 
-            // 클라이언트가 접속하면 접속을 허용하는 코드
-            // clientSocket에 클라이언트와의 연결 정보 저장
-            Socket clientSocket = serverSocket.accept();
             outputStream = clientSocket.getOutputStream();
             printStream = new PrintStream(outputStream);
             inputStream = clientSocket.getInputStream();
-
             reader = new InputStreamReader(inputStream, "UTF-8");
             br = new BufferedReader(reader);
+            sc = new Scanner(System.in);
 
-            ReadThread readThread = new ReadThread(br);
+            // 서버에 이름을 전송
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+            out.println(name);
+
+            ReadThreadClient readThread = new ReadThreadClient(br);
             readThread.start();
 
-            WriteThread writeThread = new WriteThread(printStream);
+            WriteThread writeThread = new WriteThread(printStream,sc,name);
             writeThread.start();
 
             System.out.print("채팅이 시작되었습니다\n");

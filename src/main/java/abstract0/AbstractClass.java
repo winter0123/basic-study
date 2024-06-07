@@ -1,4 +1,4 @@
-package Abstract;
+package abstract0;
 
 //추상클래스
 public abstract class AbstractClass {

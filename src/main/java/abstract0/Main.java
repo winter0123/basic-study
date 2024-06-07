@@ -1,9 +1,5 @@
-package Abstract;
+package abstract0;
 
-
-import Interface.Interface_Animal;
-import Interface.Interface_ImplementsCat;
-import Interface.Interface_ImplementsDog;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,10 +1,10 @@
-package ChattingMany;
+package chattingMany;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class ChatClient3 {
+public class ChatClient1 {
     public static void main(String[] args) {
         Socket clientSocket;
         InputStream inputStream;
@@ -15,11 +15,10 @@ public class ChatClient3 {
         PrintStream printStream;
         Scanner sc;
 
-        String name = "낮잠자는어피치";
+        String name = "배부른춘식이";
 
         try {
             clientSocket = new Socket("192.168.0.19", 80);
-
             outputStream = clientSocket.getOutputStream();
             printStream = new PrintStream(outputStream);
             inputStream = clientSocket.getInputStream();

@@ -1,4 +1,4 @@
-package Enum;
+package enum0;
 
 //열거형
 public class EnumExample {

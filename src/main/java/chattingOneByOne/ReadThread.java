@@ -1,11 +1,11 @@
-package ChattingMany;
+package chattingOneByOne;
 
 import java.io.*;
 
-public class ReadThreadClient extends Thread{
+public class ReadThread extends Thread{
 
     BufferedReader br;
-    public ReadThreadClient(BufferedReader br2) {
+    public ReadThread(BufferedReader br2) {
         br = br2;
     }
 

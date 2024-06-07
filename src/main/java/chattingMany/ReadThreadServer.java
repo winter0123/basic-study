@@ -1,4 +1,4 @@
-package ChattingMany;
+package chattingMany;
 
 import java.io.BufferedReader;
 import java.io.IOException;

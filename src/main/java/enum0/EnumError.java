@@ -1,4 +1,4 @@
-package Enum;
+package enum0;
 
 public class EnumError {
     // HTTP 상태 코드와 해당 코드에 대한 한글 에러 메시지를 나타내는 열거형
